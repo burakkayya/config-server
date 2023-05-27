@@ -2,9 +2,9 @@ spring:
   application:
     name: INVOICE-SERVICE
   data:
-    elasticsearchdb:
+    elasticsearch:
       database: invoicedb
-      uri: elasticsearchdb://localhost:92000
+      uris: http://localhost:9200
   kafka:
     consumer:
       auto-offset-reset: earliest
