@@ -34,21 +34,24 @@ eureka:
   instance:
     instance-id: ${spring.application.name}:${random.value}
     prefer-ip-address: true
+server:
+  port: 0
 management:
-  endpoints:
-    web:
-      base-path: /actuator
-      exposure:
-        include: [ "health","prometheus", "metrics" ]
   endpoint:
-    health:
-      show-details: always
     metrics:
       enabled: true
     prometheus:
       enabled: true
-server:
-  port: 0
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  tracing:
+    sampling:
+      probability: 1.0
+  zipkin:
+    tracing:
+      endpoint: http://192.168.4.24:9411/api/v2/spans
 resilience4j:
   retry:
     instances:

@@ -11,3 +11,19 @@ euraka:
       defaultZone: hhtp://${euraka.instance.hostname}:${server.port}/euraka
   instance:
     hostname: discovery-server
+management:
+  endpoint:
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  tracing:
+    sampling:
+      probability: 1.0
+  zipkin:
+    tracing:
+      endpoint: http://192.168.4.24:9411/api/v2/spans
