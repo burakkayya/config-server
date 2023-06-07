@@ -23,6 +23,8 @@ spring:
     openfeign:
       circuitbreaker:
         enabled: true
+  zipkin:
+    baseUrl: http://localhost:9411
 eureka:
   client:
     fetch-registry: true
@@ -47,6 +49,3 @@ management:
   tracing:
     sampling:
       probability: 1.0
-  zipkin:
-    tracing:
-      endpoint: http://192.168.4.24:9411/api/v2/spans
